@@ -1,9 +1,10 @@
 # from base_intersection import *
-from example_intersection import *
+# from example_intersection import *
+from roundabout import *
 
 #defining the intersection
-# intersection = Intersection()
-intersection = ExIntersection()
+intersection = Intersection()
+# intersection = ExIntersection()
 
 #assigning the simulation
 sim = intersection.get_sim()
