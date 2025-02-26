@@ -1,6 +1,6 @@
 # from base_intersection import *
 # from example_intersection import *
-from roundabout import *
+from improved_roundabout import *
 
 #defining the intersection
 intersection = Intersection()
