@@ -90,7 +90,7 @@ class Intersection:
         self.sim.create_segment((-radius + lane_space,-lane_space - island_width/2),(-radius + lane_space,lane_space + island_width/2))
         self.sim.create_segment((-lane_space - island_width/2, radius - lane_space),(lane_space + island_width/2, radius - lane_space))
 
-        #turn into corners 48-55
+        #turn into inside corners 48-55
         # end of entrance then entrance to corner then pull point x1, y2
         self.sim.create_quadratic_bezier_curve((lane_space/2 + island_width/2, intersection_size/2),(lane_space/2 + island_width/2, radius - lane_space),(lane_space + island_width/2, radius - lane_space))
         self.sim.create_quadratic_bezier_curve((lane_space*3/2 + island_width/2, intersection_size/2),(lane_space*3/2 + island_width/2, radius - lane_space),(lane_space*3/2 + island_width/2, radius - lane_space))
@@ -103,6 +103,19 @@ class Intersection:
 
         self.sim.create_quadratic_bezier_curve((-intersection_size/2, lane_space/2 + island_width/2),(-radius + lane_space,lane_space/2 + island_width/2),(-radius + lane_space,lane_space + island_width/2))
         self.sim.create_quadratic_bezier_curve((-intersection_size/2, lane_space*3/2 + island_width/2),(-radius + lane_space,lane_space*3/2 + island_width/2),(-radius + lane_space,lane_space*3/2 + island_width/2))
+
+        #turn to exit from inside 56-63
+        self.sim.create_quadratic_bezier_curve((radius - lane_space,lane_space + island_width/2),(radius - lane_space,lane_space/2 + island_width/2),(intersection_size/2, lane_space/2 + island_width/2))
+        self.sim.create_quadratic_bezier_curve((radius - lane_space,lane_space + island_width/2),(radius - lane_space,lane_space*3/2 + island_width/2),(intersection_size/2, lane_space*3/2 + island_width/2))
+
+        self.sim.create_quadratic_bezier_curve((lane_space + island_width/2,-radius + lane_space),(lane_space/2 + island_width/2,-radius + lane_space),(lane_space/2 + island_width/2, -intersection_size/2))
+        self.sim.create_quadratic_bezier_curve((lane_space + island_width/2,-radius + lane_space),(lane_space*3/2 + island_width/2,-radius + lane_space),(lane_space*3/2 + island_width/2, -intersection_size/2))
+
+        self.sim.create_quadratic_bezier_curve((-radius + lane_space,-lane_space - island_width/2),(-radius + lane_space,-lane_space/2 - island_width/2),(-intersection_size/2, -lane_space/2 - island_width/2))
+        self.sim.create_quadratic_bezier_curve((-radius + lane_space,-lane_space - island_width/2),(-radius + lane_space,-lane_space*3/2 - island_width/2),(-intersection_size/2, -lane_space*3/2 - island_width/2))
+
+        self.sim.create_quadratic_bezier_curve((-lane_space - island_width/2, radius - lane_space),(-lane_space/2 - island_width/2,radius - lane_space),(-lane_space/2 - island_width/2, intersection_size/2))
+        self.sim.create_quadratic_bezier_curve((-lane_space - island_width/2, radius - lane_space),(-lane_space*3/2 - island_width/2,radius - lane_space),(-lane_space*3/2 - island_width/2, intersection_size/2))
 
         # TODO: FIX THE PATHS OF ALL THE VHEILCES AND ADD NEW ONES FOR THE NEW INNER ROUNDABOUT + ADD COLORS
         self.vg = VehicleGenerator({
@@ -130,7 +143,8 @@ class Intersection:
                 # Testing Paths
                 # delete for final this just to test the inner roundabout
                 # (1, {'path': [48, 40, 44, 41, 45, 42, 46, 43, 8],'v_max':self.v}),
-                (1, {'path': [48, 49, 50, 51, 52, 53, 54, 55],'v_max':self.v}), # test all turn into corners
+                # (1, {'path': [48, 49, 50, 51, 52, 53, 54, 55],'v_max':self.v}), # test all turn into corners
+                (1, {'path': [56, 57, 58, 59, 60, 61, 62, 63], 'v_max':self.v}), # test all turn to exit from inside
             ], 'vehicle_rate': 20
         })
         
