@@ -1,7 +1,10 @@
-from base_intersection import *
+# from base_intersection import *
+from example_intersection import *
 
 #defining the intersection
-intersection = Intersection()
+# intersection = Intersection()
+intersection = ExIntersection()
+
 #assigning the simulation
 sim = intersection.get_sim()
 #defining the window that displays the simulation
