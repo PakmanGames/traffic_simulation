@@ -65,12 +65,19 @@ class Intersection:
         self.sim.create_quadratic_bezier_curve((-lane_space - island_width/2, radius),(-lane_space/2 - island_width/2,radius),(-lane_space/2 - island_width/2, intersection_size/2))
         self.sim.create_quadratic_bezier_curve((-lane_space - island_width/2, radius),(-lane_space*3/2 - island_width/2,radius),(-lane_space*3/2 - island_width/2, intersection_size/2))
     
-        #inside corners 16-19
+        #inside corners 40-43
         self.sim.create_quadratic_bezier_curve((lane_space + island_width/2, radius - lane_space),(radius - lane_space,radius - lane_space),(radius - lane_space,lane_space + island_width/2))
         self.sim.create_quadratic_bezier_curve((radius - lane_space,-lane_space - island_width/2),(radius - lane_space,-radius + lane_space),(lane_space + island_width/2,-radius + lane_space))
         self.sim.create_quadratic_bezier_curve((-lane_space - island_width/2,-radius + lane_space),(-radius + lane_space,-radius + lane_space),(-radius + lane_space,-lane_space - island_width/2))
         self.sim.create_quadratic_bezier_curve((-radius + lane_space,lane_space + island_width/2),(-radius + lane_space,radius - lane_space),(-lane_space - island_width/2, radius - lane_space))
 
+        #inside connectors 44-47
+        self.sim.create_segment((radius - lane_space,lane_space + island_width/2),(radius - lane_space,-lane_space - island_width/2))
+        self.sim.create_segment((lane_space + island_width/2,-radius + lane_space),(-lane_space - island_width/2,-radius + lane_space))
+        self.sim.create_segment((-radius + lane_space,-lane_space - island_width/2),(-radius + lane_space,lane_space + island_width/2))
+        self.sim.create_segment((-lane_space - island_width/2, radius - lane_space),(lane_space + island_width/2, radius - lane_space))
+
+        # TODO: FIX THE PATHS OF ALL THE VHEILCES AND ADD NEW ONES FOR THE NEW INNER ROUNDABOUT + ADD COLORS
         self.vg = VehicleGenerator({
             'vehicles': [
                 (1, {'path': [0, 24, 16,32,8],'v_max':self.v}),
