@@ -21,7 +21,8 @@ class Intersection:
         self.sim.create_segment((-lane_space/2 - island_width/2, -length - intersection_size/2), (-lane_space/2 - island_width/2, - intersection_size/2)) 
         self.sim.create_segment((-lane_space*3/2 - island_width/2, -length - intersection_size/2), (-lane_space*3/2 - island_width/2, - intersection_size/2)) 
         self.sim.create_segment((-length - intersection_size/2, lane_space/2 + island_width/2), (-intersection_size/2, lane_space/2 + island_width/2)) 
-        self.sim.create_segment((-length - intersection_size/2, lane_space*3/2 + island_width/2), (-intersection_size/2, lane_space*3/2 + island_width/2)) 
+        self.sim.create_segment((-length - intersection_size/2, lane_space*3/2 + island_width/2), (-intersection_size/2, lane_space*3/2 + island_width/2))
+
         #exit 8-15
         self.sim.create_segment((-lane_space/2 - island_width/2, intersection_size/2), (-lane_space/2 - island_width/2, length + intersection_size/2))
         self.sim.create_segment((-lane_space*3/2 - island_width/2, intersection_size/2), (-lane_space*3/2 - island_width/2, length + intersection_size/2))
@@ -31,16 +32,19 @@ class Intersection:
         self.sim.create_segment((lane_space*3/2 + island_width/2, -intersection_size/2), (lane_space*3/2 + island_width/2, -length - intersection_size/2))
         self.sim.create_segment((-intersection_size/2, -lane_space/2 - island_width/2), (-length-intersection_size/2, -lane_space/2 - island_width/2))
         self.sim.create_segment((-intersection_size/2, -lane_space*3/2 - island_width/2), (-length-intersection_size/2, -lane_space*3/2 - island_width/2))
+
         #corners 16-19
         self.sim.create_quadratic_bezier_curve((lane_space + island_width/2, radius),(radius,radius),(radius,lane_space + island_width/2))
         self.sim.create_quadratic_bezier_curve((radius,-lane_space - island_width/2),(radius,-radius),(lane_space + island_width/2,-radius))
         self.sim.create_quadratic_bezier_curve((-lane_space - island_width/2,-radius),(-radius,-radius),(-radius,-lane_space - island_width/2))
         self.sim.create_quadratic_bezier_curve((-radius,lane_space + island_width/2),(-radius,radius),(-lane_space - island_width/2, radius))
+
         #connectors 20-23
         self.sim.create_segment((radius,lane_space + island_width/2),(radius,-lane_space - island_width/2))
         self.sim.create_segment((lane_space + island_width/2,-radius),(-lane_space - island_width/2,-radius))
         self.sim.create_segment((-radius,-lane_space - island_width/2),(-radius,lane_space + island_width/2))
         self.sim.create_segment((-lane_space - island_width/2, radius),(lane_space + island_width/2, radius))
+
         #turn into corners 24-31
         self.sim.create_quadratic_bezier_curve((lane_space/2 + island_width/2, intersection_size/2),(lane_space/2 + island_width/2, radius),(lane_space + island_width/2, radius))
         self.sim.create_quadratic_bezier_curve((lane_space*3/2 + island_width/2, intersection_size/2),(lane_space*3/2 + island_width/2, radius),(lane_space*3/2 + island_width/2, radius))
@@ -50,6 +54,7 @@ class Intersection:
         self.sim.create_quadratic_bezier_curve((-lane_space*3/2 - island_width/2, - intersection_size/2),(-lane_space*3/2 - island_width/2, -radius),(-lane_space*3/2 - island_width/2,-radius))
         self.sim.create_quadratic_bezier_curve((-intersection_size/2, lane_space/2 + island_width/2),(-radius,lane_space/2 + island_width/2),(-radius,lane_space + island_width/2))
         self.sim.create_quadratic_bezier_curve((-intersection_size/2, lane_space*3/2 + island_width/2),(-radius,lane_space*3/2 + island_width/2),(-radius,lane_space*3/2 + island_width/2))
+
         #turn to exit 32-39
         self.sim.create_quadratic_bezier_curve((radius,lane_space + island_width/2),(radius,lane_space/2 + island_width/2),(intersection_size/2, lane_space/2 + island_width/2))
         self.sim.create_quadratic_bezier_curve((radius,lane_space + island_width/2),(radius,lane_space*3/2 + island_width/2),(intersection_size/2, lane_space*3/2 + island_width/2))
@@ -60,6 +65,12 @@ class Intersection:
         self.sim.create_quadratic_bezier_curve((-lane_space - island_width/2, radius),(-lane_space/2 - island_width/2,radius),(-lane_space/2 - island_width/2, intersection_size/2))
         self.sim.create_quadratic_bezier_curve((-lane_space - island_width/2, radius),(-lane_space*3/2 - island_width/2,radius),(-lane_space*3/2 - island_width/2, intersection_size/2))
     
+        #inside corners 16-19
+        self.sim.create_quadratic_bezier_curve((lane_space + island_width/2, radius - lane_space),(radius - lane_space,radius - lane_space),(radius - lane_space,lane_space + island_width/2))
+        self.sim.create_quadratic_bezier_curve((radius - lane_space,-lane_space - island_width/2),(radius - lane_space,-radius + lane_space),(lane_space + island_width/2,-radius + lane_space))
+        self.sim.create_quadratic_bezier_curve((-lane_space - island_width/2,-radius + lane_space),(-radius + lane_space,-radius + lane_space),(-radius + lane_space,-lane_space - island_width/2))
+        self.sim.create_quadratic_bezier_curve((-radius + lane_space,lane_space + island_width/2),(-radius + lane_space,radius - lane_space),(-lane_space - island_width/2, radius - lane_space))
+
         self.vg = VehicleGenerator({
             'vehicles': [
                 (1, {'path': [0, 24, 16,32,8],'v_max':self.v}),
