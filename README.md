@@ -10,25 +10,15 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-<div align="center">
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-</div>
-
-
+# 2PX3 Sprint 2 Simulation Code
+This repository has been modified based on the original code for the purposes of analyzing and optimizing traffic flow for the 2PX3 course.
 <!-- PROJECT LOGO -->
-<br />
 <div align="center">
   <h3 align="center">trafficSimulator</h3>
 
   <p align="center">
-    A microscopic traffic simulator in Python.
+    A microscopic traffic simulator in Python. Simulation code for 2PX3 Sprint 2.
   </p>
 </div>
 
@@ -37,13 +27,33 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![trafficSimulator screenshot][product-screenshot]](https://towardsdatascience.com/simulating-traffic-flow-in-python-ee1eab4dd20f)
-
 **trafficSimulator** is a Python project that aims to provide a flexible and user-friendly platform for creating and testing traffic scenarios and analyzing their outcomes.
 
 **trafficSimulator** is suitable for students, researchers and practitioners who are interested in studying traffic phenomena and finding solutions for traffic problems.
 
 To learn more about how the project was created check out this [article](https://towardsdatascience.com/simulating-traffic-flow-in-python-ee1eab4dd20f) on Medium.
+
+### Design Process
+
+Our prototype design was developed through a systematic approach:
+
+1. **Analysis**: We first analyzed the given roundabout code and traced the movement paths of vehicles while making note of segment numbers.
+
+![Analysis](./Documentation/maybeWeCanAddThisToReportImages/img1.png)
+
+2. **Planning**: We designed our intersection with the main objective of reducing traffic congestion.
+
+![Planning1](./Documentation/maybeWeCanAddThisToReportImages/img2.png)
+![Planning2](./Documentation/maybeWeCanAddThisToReportImages/img3.png)
+
+3. **Implementation**: We expanded the number of lanes for entry and exit to allow for more vehicles, and implemented a dual-lane roundabout design.
+
+![InitialPrototype](./Documentation/maybeWeCanAddThisToReportImages/img4.png)
+
+4. **Finalization**: We labeled each segment with its number to facilitate further development and vehicle generation.
+
+![Labeled1](./Documentation/maybeWeCanAddThisToReportImages/img5.png)
+![Labeled2](./Documentation/maybeWeCanAddThisToReportImages/img6.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -78,7 +88,7 @@ pip install trafficSimulator
 ```
 
 #### Installing from source
-1. `git clone https://github.com/BilHim/trafficSimulator`
+1. `git clone https://github.com/PakmanGames/traffic_simulation`
 2. `cd trafficSimulator`
 3. `pip install -e .`
 
@@ -95,22 +105,6 @@ import trafficSimulator as ts
 ```
 
 _For more examples, please refer to the [Examples](https://github.com/BilHim/trafficSimulator/tree/main/examples) folder._
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- DOCUMENTATION -->
-## Documentation
-
-To be completed.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ROADMAP -->
-## Roadmap
-
-To be completed.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -142,16 +136,16 @@ Distributed under the MIT License. See [`LICENSE`](https://github.com/BilHim/tra
 
 
 <!-- CONTACT -->
-## Contact
+## Links
+Original Project Link: [https://github.com/BilHim/trafficSimulator](https://github.com/BilHim/trafficSimulator)
+<div align="center">
 
-Bilal Himite
-* LinkedIn: [@bilalhimite][linkedin-url]
-* Medium: [@bilhim](https://medium.com/@bilhim)
-* Email: hello@bilalhimite.me
-* Portfolio: [bilalhimite.me](https://bilalhimite.me)
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
-Project Link: [https://github.com/BilHim/trafficSimulator](https://github.com/BilHim/trafficSimulator)
-
+</div>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
